@@ -110,20 +110,20 @@
       //  And some controls to play the game with
       cursors = game.input.keyboard.createCursorKeys();
       fireButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-      }
-      
-      game.input.touch.onTouchEnd(fireBullet); 
+
+      game.input.touch.onTouchEnd(fireBullet);
+
       // add the gyro for mobile
-        gyro.frequency = 10;
-        var origX = 0;
-        gyro.startTracking(function (o) {
-          if (player.alive) {
-            //  Reset the player, then check for movement keys
-            var delta = o.x - origX;
-            player.body.velocity.x += delta * 100;
-            origX = o.x;
-          }
-        });
+      gyro.frequency = 10;
+      var origX = 0;
+      gyro.startTracking(function (o) {
+        if (player.alive) {
+          //  Reset the player, then check for movement keys
+          var delta = o.x - origX;
+          player.body.velocity.x += delta * 100;
+          origX = o.x;
+        }
+      });
     }
 
     function createAliens() {
