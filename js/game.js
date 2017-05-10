@@ -108,9 +108,13 @@
       explosions.forEach(setupInvader, this);
 
       //  And some controls to play the game with
-      cursors = game.input.keyboard.createCursorKeys();
-      fireButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-
+      if (Phaser.Device.desktop) {
+        cursors = game.input.keyboard.createCursorKeys();
+        fireButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+      }
+      else {
+       fireButton = game.input.touch.onTouchEnd(fireBullet); 
+      }
       // add the gyro for mobile
         gyro.frequency = 10;
         var origX = 0;
