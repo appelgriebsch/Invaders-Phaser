@@ -111,8 +111,8 @@
       cursors = game.input.keyboard.createCursorKeys();
       fireButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
-      game.input.touch.onTouchEnd(fireBullet);
-
+      game.input.onDown.add(fireBullet, this);
+  
       // add the gyro for mobile
       gyro.frequency = 10;
       var origX = 0;
