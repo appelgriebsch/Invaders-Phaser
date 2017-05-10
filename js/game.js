@@ -118,7 +118,7 @@
           if (player.alive) {
             //  Reset the player, then check for movement keys
             var delta = o.x - origX;
-            player.body.velocity.x += delta * 20;
+            player.body.velocity.x += delta * 100;
             origX = o.x;
           }
         });
