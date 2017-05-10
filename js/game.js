@@ -117,9 +117,9 @@
         gyro.startTracking(function (o) {
           if (player.alive) {
             //  Reset the player, then check for movement keys
-            origX = o.x;
             var delta = o.x - origX;
-            player.body.velocity.x += delta / 10;
+            player.body.velocity.x += delta;
+            origX = o.x;
           }
         });
     }
