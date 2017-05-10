@@ -115,11 +115,11 @@
       if (!Phaser.Device.desktop) {
         gyro.frequency = 10;
         gyro.startTracking(function (o) {
-          //alert(JSON.stringify(o));
+          console.log(JSON.stringify(o));
           if (player.alive) {
             //  Reset the player, then check for movement keys
             //player.body.velocity.setTo(0, 0);
-            player.body.velocity.x += o.gamma / 20;
+            player.body.velocity.x += o.beta / 20;
           }
         });
       }
