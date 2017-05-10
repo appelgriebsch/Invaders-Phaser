@@ -114,11 +114,10 @@
       // add the gyro for mobile
         gyro.frequency = 10;
         gyro.startTracking(function (o) {
-          console.log(JSON.stringify(o));
           if (player.alive) {
             //  Reset the player, then check for movement keys
             //player.body.velocity.setTo(0, 0);
-            player.body.velocity.x += o.x / 20;
+            player.body.velocity.x += o.x / 10;
           }
         });
     }
