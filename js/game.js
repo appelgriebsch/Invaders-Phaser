@@ -112,22 +112,15 @@
       fireButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
       // add the gyro for mobile
-      /*if (!Phaser.Device.desktop) {
         gyro.frequency = 10;
         gyro.startTracking(function (o) {
           console.log(JSON.stringify(o));
           if (player.alive) {
             //  Reset the player, then check for movement keys
             //player.body.velocity.setTo(0, 0);
-            player.body.velocity.x += o.beta / 20;
+            player.body.velocity.x += o.x / 20;
           }
         });
-      }*/
-      if(window.DeviceMotionEvent){
-        window.addEventListener("devicemotion", motion, false);
-      }else{
-        console.log("DeviceMotionEvent is not supported");
-      }
     }
 
     function createAliens() {
@@ -173,7 +166,7 @@
 
       if (player.alive) {
         //  Reset the player, then check for movement keys
-        player.body.velocity.setTo(0, 0);
+        //player.body.velocity.setTo(0, 0);
 
         if (cursors.left.isDown) {
           player.body.velocity.x = -200;
@@ -334,14 +327,5 @@
       stateText.visible = false;
 
     }
-
-    function motion(event) {
-      if (player.alive) {
-        //  Reset the player, then check for movement keys
-        //player.body.velocity.setTo(0, 0);
-        player.body.velocity.x += event.accelerationIncludingGravity.x;
-      }
-    }
-
   })
 })();
